@@ -49,7 +49,7 @@ const VinDetails = ({ vin, onNewQuery, onSuccess, onError }) => {
 	return (<>
 		<VinListHeader vin={vin} onNewQuery={onNewQuery} />
 
-		<FlatList
+		<FlatList style={{ paddingTop: 20, backgroundColor: '#fffff0' }}
 			keyExtractor={(item, index) => index}
 			renderItem={VinListItem}
 			data={dataSource}

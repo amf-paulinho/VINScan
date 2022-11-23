@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
 		borderWidth: 2,
 		padding: 5,
 		fontSize: 26,
-		color: 'white',
+		color: 'navy',
+		backgroundColor: 'yellow',
 		fontWeight: 'bold',
 	},
 });

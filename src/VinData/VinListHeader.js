@@ -4,7 +4,7 @@ import { Button, View } from 'react-native';
 import VinNumber from '../VinNumber';
 
 const VinListHeader = ({ vin, onNewQuery }) => {
-	return (<View style={{ marginBottom: 15 }}>
+	return (<View >
 		<VinNumber vin={vin} />
 		<Button title='Scan another VIN' onPress={() => onNewQuery()} />
 	</View>)

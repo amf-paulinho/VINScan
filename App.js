@@ -10,6 +10,8 @@ import VinDetails from './src/VinData/VinDetails';
 export default function App() {
   const [hasPermission, setHasPermission] = React.useState(false);
 
+  const [torchIsActive, setTorchIsActive] = React.useState(false);
+
   const [VIN, setVIN] = React.useState(undefined);
   const [isActive, setIsActive] = React.useState(true);
 
@@ -41,9 +43,14 @@ export default function App() {
 
   }, [barcodes[0]]);
 
-  const BottomPanel = () => {
+  const torchHandler = () => {
+    console.log(torchIsActive);
+    setTorchIsActive(status => !status);
+  }
+
+  const BottomPanel = ({ onTorch }) => {
     if (isActive)
-      return <HelpPanel />;
+      return <HelpPanel onTorch={onTorch} />;
     else
       return <VinDetails vin={VIN} onNewQuery={newQueryHandler} />;
   }
@@ -57,8 +64,9 @@ export default function App() {
         isActive={isActive}
         frameProcessor={frameProcessor}
         frameProcessorFps={5}
+        torch={torchIsActive ? 'on' : 'off'}
       />}
 
-      <BottomPanel />
+      <BottomPanel onTorch={torchHandler} />
     </SafeAreaView>));
 }
